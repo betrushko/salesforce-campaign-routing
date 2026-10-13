@@ -1,0 +1,28 @@
+SELECT
+    Id,
+    Name,
+    Auth__c,
+    CloseDate,
+    Amount,
+    StageName,
+    LeadSource,
+    CreatedDate,
+    LastModifiedDate,
+    CampaignId,
+    Campaign.Name,
+    Campaign.Campaign_Code__c,
+    Campa_a_de_origen__c,
+    Main_Campaign__c,
+    Transaccion__c,
+    npe03__Recurring_Donation__c,
+    npe03__Recurring_Donation__r.Name,
+    npe03__Recurring_Donation__r.Campa_a_de_origen__c,
+    npe03__Recurring_Donation__r.npe03__Recurring_Donation_Campaign__c,
+    npe03__Recurring_Donation__r.npe03__Recurring_Donation_Campaign__r.Name,
+    npe03__Recurring_Donation__r.Transaction_ID_Unique__c,
+    npe03__Recurring_Donation__r.CreatedDate,
+    npe03__Recurring_Donation__r.LastModifiedDate
+FROM Opportunity
+WHERE LeadSource = 'PaymentHub'
+AND Auth__c LIKE 'DEMO-FH-%'
+AND Transaccion__c = null
